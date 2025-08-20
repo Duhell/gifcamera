@@ -178,23 +178,23 @@ const downloadAll = async () => {
     <h1 class="text-3xl font-bold mb-4">GIF Camera</h1>
 
     <!-- Controls -->
-    <div class="flex gap-4 mb-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
       <div>
         <label class="block text-sm mb-1">Select Stack</label>
-        <select v-model="stacks" class="bg-zinc-800 text-white px-3 py-2 rounded-md">
+        <select v-model="stacks" class="w-full bg-zinc-800 text-white px-3 py-2 rounded-md">
           <option v-for="n in 4" :key="n" :value="n">{{ n }} stack</option>
         </select>
       </div>
       <div>
         <label class="block text-sm mb-1">Orientation</label>
-        <select v-model="orientation" class="bg-zinc-800 text-white px-3 py-2 rounded-md">
+        <select v-model="orientation" class="w-full bg-zinc-800 text-white px-3 py-2 rounded-md">
           <option value="vertical">Vertical</option>
           <option value="horizontal">Horizontal</option>
         </select>
       </div>
-      <div>
+      <div class="col-span-2 md:col-span-1">
         <label class="block text-sm mb-1">Filter</label>
-        <select v-model="selectedFilter" class="bg-zinc-800 text-white px-3 py-2 rounded-md">
+        <select v-model="selectedFilter" class="w-full bg-zinc-800 text-white px-3 py-2 rounded-md">
           <option value="none">None</option>
           <option value="grayscale">Black & White</option>
           <option value="sepia">Sepia</option>
@@ -203,7 +203,7 @@ const downloadAll = async () => {
           <option value="saturate">Saturate</option>
         </select>
       </div>
-      <div>
+      <div class="col-span-2 md:col-span-1">
         <label class="block text-sm mb-1">Actions</label>
         <div class="flex gap-3">
           <button @click="startRecording" :disabled="isRecording"
@@ -218,7 +218,6 @@ const downloadAll = async () => {
           </button>
         </div>
       </div>
-
     </div>
     <div class="flex-1 flex justify-center items-center">
       <div :class="[
